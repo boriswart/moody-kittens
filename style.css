@@ -125,6 +125,7 @@ button.btn-special:hover{
 
 .card-dark{
   background-color: var(--dark);
+  color: var(--light);
   padding: 1em;
   box-shadow: var(--shadow);
   border-radius: var(--corners);
