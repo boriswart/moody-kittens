@@ -3,6 +3,9 @@
  * @type {Kitten[]}
  */
 let kittens = [];
+let kitten = {};
+
+
 /**
  * Called when submitting the new Kitten Form
  * This method will pull data from the form
@@ -13,30 +16,36 @@ let kittens = [];
  * Then reset the form
  */
 function addKitten(event) {
-   
-
-
-
-
+  event.preventDefault()
+  let form = event.target
+  kitten = {
+    id: generateId(),
+    name: form.name.value.toString(),
+  }
+  console.log(kitten)
+  kittens.push(kitten)
+  saveKittens()
+  form.reset
 }
 
 /**
  * Converts the kittens array to a JSON string then
  * Saves the string to localstorage at the key kittens
  */
-function saveKittens() {}
+function saveKittens() { }
 
 /**
  * Attempts to retrieve the kittens string from localstorage
  * then parses the JSON string into an array. Finally sets
  * the kittens array to the retrieved array
  */
-function loadKittens() {}
+function loadKittens() { }
 
 /**
  * Draw all of the kittens to the kittens element
  */
-function drawKittens() {}
+function drawKittens() {
+}
 
 /**
  * Find the kitten in the array by its id
@@ -56,7 +65,7 @@ function findKittenById(id) {
  * save the kittens
  * @param {string} id
  */
-function pet(id) {}
+function pet(id) { }
 
 /**
  * Find the kitten in the array of kittens
@@ -65,17 +74,18 @@ function pet(id) {}
  * save the kittens
  * @param {string} id
  */
-function catnip(id) {}
+function catnip(id) { }
 
 /**
  * Sets the kittens mood based on its affection
  * Happy > 6, Tolerant <= 5, Angry <= 3, Gone <= 0
  * @param {Kitten} kitten
  */
-function setKittenMood(kitten) {}
+function setKittenMood(kitten) { }
 
 function getStarted() {
   document.getElementById("welcome").remove();
+  document.getElementById("kitten").classList.remove("hidden")
   drawKittens();
 }
 
