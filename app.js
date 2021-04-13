@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Stores the list of kittens
  * @type {Kitten[]}
@@ -33,7 +34,10 @@ function addKitten(event) {
  * Converts the kittens array to a JSON string then
  * Saves the string to localstorage at the key kittens
  */
-function saveKittens() { }
+function saveKittens() {
+  window.localStorage.setItem("kittens", JSON.stringify(kittens))
+  drawKittens()
+}
 
 /**
  * Attempts to retrieve the kittens string from localstorage
@@ -46,6 +50,26 @@ function loadKittens() { }
  * Draw all of the kittens to the kittens element
  */
 function drawKittens() {
+  let kittenListElement = document.getElementById("kitten")
+  let kittenTemplate = ""
+  /*
+  <img src="https://robohash.org/${x.name}?set=set4" alt="https://robohash.org/set=set4"></img>
+
+
+
+  */
+
+  kittens.forEach(x => {
+    kittenTemplate = + `
+      <div class="dark-card">
+      <h3 class="mt-1 mb-1 ml-3">Name: ${x.name}.toString()</h3>
+      <h3 class="mt-1 mb-1 ml-3">Mood: ${x.mood}</h3>
+      <h3 class="mt-1 mb-1 ml-3">Affection: ${x.affection}.toString()</h3>
+      </div>
+    `
+    console.log(kittenTemplate)
+  })
+  kittenListElement.innerHTML = kittenTemplate
 }
 
 /**
