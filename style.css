@@ -123,6 +123,15 @@ button.btn-special:hover{
   border-radius: var(--corners);
 }
 
+.card-dark{
+  background-color: var(--dark);
+  padding: 1em;
+  box-shadow: var(--shadow);
+  border-radius: var(--corners);
+  height: 25%;
+  width: 25%;
+}
+
 .shadow{
   filter: drop-shadow(var(--shadow));
 }

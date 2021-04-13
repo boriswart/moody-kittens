@@ -12,7 +12,13 @@ let kittens = [];
  * then add that data to the kittens list.
  * Then reset the form
  */
-function addKitten(event) {}
+function addKitten(event) {
+   
+
+
+
+
+}
 
 /**
  * Converts the kittens array to a JSON string then
