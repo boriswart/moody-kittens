@@ -113,6 +113,7 @@ button.btn-special:hover{
   color: var(--primary);
 }
 .container{
+  align-items:center;
   margin: 0 .5em;
 }
 
@@ -129,8 +130,18 @@ button.btn-special:hover{
   padding: 1em;
   box-shadow: var(--shadow);
   border-radius: var(--corners);
+
+}
+
+.kitten{
   height: 25%;
   width: 25%;
+}
+
+
+.top{
+  position:fixed;
+  top: 20%;
 }
 
 .shadow{
@@ -225,6 +236,7 @@ button.btn-special:hover{
   margin-bottom: 1.5em;
 }
 
+
 .m-1{
   margin: .5em;
 }
@@ -243,6 +255,18 @@ button.btn-special:hover{
 }
 .p-3{
   padding: 1.5em;
+}
+
+.ml-1{
+  margin-left: .5em;
+}
+
+.ml-2{
+  margin-left: 1.0em;
+}
+
+.ml-3{
+  margin-left: 1.5em;
 }
 
 .pt-1{

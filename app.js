@@ -53,21 +53,18 @@ function drawKittens() {
   let kittenListElement = document.getElementById("kitten")
   let kittenTemplate = ""
   /*
-  <img src="https://robohash.org/${x.name}?set=set4" alt="https://robohash.org/set=set4"></img>
-
-
-
+  <h3 class="mt-1 mb-1 ml-3">Mood: ${x.mood}</h3>
+  <h3 class="mt-1 mb-1 ml-3">Affection: ${x.affection}.toString()</h3>
   */
 
   kittens.forEach(x => {
-    kittenTemplate = + `
-      <div class="dark-card">
-      <h3 class="mt-1 mb-1 ml-3">Name: ${x.name}.toString()</h3>
-      <h3 class="mt-1 mb-1 ml-3">Mood: ${x.mood}</h3>
-      <h3 class="mt-1 mb-1 ml-3">Affection: ${x.affection}.toString()</h3>
-      </div>
-    `
-    console.log(kittenTemplate)
+    kittenTemplate += `
+   <span class="card-dark ">
+     <img src="https://robohash.org/${x.name}?set=set4" alt="https://robohash.org/set=set4"></img>
+     <h3 class="mt-1 mb-1 ml-3">Name: ${x.name}</h3>
+   </span>
+   `
+    console.log("log: ", kittenTemplate.toString())
   })
   kittenListElement.innerHTML = kittenTemplate
 }
