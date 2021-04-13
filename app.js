@@ -3,8 +3,7 @@
  * @type {Kitten[]}
  */
 let kittens = [];
-let kitten = {};
-
+let Kitten = {};
 
 /**
  * Called when submitting the new Kitten Form
@@ -18,12 +17,14 @@ let kitten = {};
 function addKitten(event) {
   event.preventDefault()
   let form = event.target
-  kitten = {
+  Kitten = {
     id: generateId(),
     name: form.name.value.toString(),
+    mood: "tolerate",
+    affection: 4
   }
-  console.log(kitten)
-  kittens.push(kitten)
+  console.log(Kitten)
+  kittens.push(Kitten)
   saveKittens()
   form.reset
 }
