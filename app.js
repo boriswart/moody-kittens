@@ -99,13 +99,13 @@ function findKittenById(id) {
  */
 function pet(id) {
   console.log("PetId: ", id)
-  let storedKitten = findKittenById(id)
+  let KittenPtr = findKittenById(id)
   let randAffection = Math.random()
-  console.log("Petting: ", storedKitten.name, " Please be careful")
+  console.log("Petting: ", KittenPtr.name, " Please do be careful")
   if (randAffection > 0.7) {
-    storedKitten.affection++
+    KittenPtr.affection++
   } else {
-    storedKitten.affection--
+    KittenPtr.affection--
   }
   drawKittens()
 }
@@ -117,8 +117,14 @@ function pet(id) {
  * save the kittens
  * @param {string} id
  */
+
 function catnip(id) {
-  console.log("CatnipId: ", id)
+  console.log("Catnip: ", id)
+  let KittenPtr = findKittenById(id)
+  console.log("Catnipping: ", KittenPtr.name, " A very good choice!")
+  KittenPtr.affection = 5;
+  KittenPtr.mood = "tolerate"
+  drawKittens()
 }
 
 /**
