@@ -112,6 +112,7 @@ button.btn-special{
   flex-direction: column;
   justify-content: center;
 }
+
 button.btn-special:after{
   content: "ADD";
   margin-top: 5px;
@@ -145,10 +146,6 @@ button.btn-special:hover{
 
 }
 
-.kitten{
-  height: 25%;
-  width: 25%;
-}
 
 .top{
   position:fixed;
