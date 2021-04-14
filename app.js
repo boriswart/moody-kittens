@@ -63,8 +63,8 @@ function drawKittens() {
     <span class="card-dark ">
     <img src="https://robohash.org/${x.name}?set=set4" alt="https://robohash.org/set=set4"></img>
     <p class="mt-1 mb-1 ml-3">Name: ${x.name}</>
-    <p id='${JSON.stringify(x.id)} mood' class="mt-1 mb-1 ml-3">Mood: ${x.mood}</p>
-    <p id='${JSON.stringify(x.id)} affection' class="mt-1 mb-1 ml-3">Affection: ${x.affection}</p>
+    <p id='${'mood' + '-' + (x.id)}' class="mt-1 mb-1 ml-3">Mood: ${x.mood}</p>
+    <p id='${'affection' + '-' + (x.id)}' class="mt-1 mb-1 ml-3">Affection: ${x.affection}</p>
     <div class="d-flex space-between align-items-center ">
     <button class="danger" type="button" Name="PET" onclick='pet(${JSON.stringify(x.id)})'>Pet</button>
     <button class="button" type="button"  onclick='catnip(${JSON.stringify(x.id)})'>Catnip</button>
@@ -98,6 +98,7 @@ function findKittenById(id) {
  * @param {string} id
  */
 function pet(id) {
+  let affectionElement = document.getElementById("affection-" + id)
   console.log("PetId: ", id)
   let KittenPtr = findKittenById(id)
   let randAffection = Math.random()
@@ -107,7 +108,8 @@ function pet(id) {
   } else {
     KittenPtr.affection--
   }
-  drawKittens()
+  affectionElement.innerHTML = ("Affection: " + KittenPtr.affection.toString())
+  /* drawKittens() */
 }
 
 /**
@@ -119,12 +121,17 @@ function pet(id) {
  */
 
 function catnip(id) {
+  let moodElement = document.getElementById("mood-" + id)
+  let affectionElement = document.getElementById("affection-" + id)
   console.log("Catnip: ", id)
   let KittenPtr = findKittenById(id)
   console.log("Catnipping: ", KittenPtr.name, " A very good choice!")
   KittenPtr.affection = 5;
   KittenPtr.mood = "tolerate"
-  drawKittens()
+  affectionElement.innerHTML = "Affection: 5"
+  moodElement.innerHTML = "Mood: tolerate"
+
+  /* drawKittens()   Not needed any more aince updating DOM */
 }
 
 /**
