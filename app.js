@@ -63,8 +63,8 @@ function drawKittens() {
     <span class="card-dark ">
     <img src="https://robohash.org/${x.name}?set=set4" alt="https://robohash.org/set=set4"></img>
     <p class="mt-1 mb-1 ml-3">Name: ${x.name}</>
-    <p class="mt-1 mb-1 ml-3">Mood: ${x.mood}</p>
-    <p class="mt-1 mb-1 ml-3">Affection: ${x.affection}</p>
+    <p id='${JSON.stringify(x.id)} mood' class="mt-1 mb-1 ml-3">Mood: ${x.mood}</p>
+    <p id='${JSON.stringify(x.id)} affection' class="mt-1 mb-1 ml-3">Affection: ${x.affection}</p>
     <div class="d-flex space-between align-items-center ">
     <button class="danger" type="button" Name="PET" onclick='pet(${JSON.stringify(x.id)})'>Pet</button>
     <button class="button" type="button"  onclick='catnip(${JSON.stringify(x.id)})'>Catnip</button>
