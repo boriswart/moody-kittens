@@ -110,6 +110,7 @@ function pet(id) {
   }
   affectionElement.innerHTML = ("Affection: " + KittenPtr.affection.toString())
   /* drawKittens() */
+  saveKittens()
 }
 
 /**
@@ -130,6 +131,7 @@ function catnip(id) {
   KittenPtr.mood = "tolerate"
   affectionElement.innerHTML = "Affection: 5"
   moodElement.innerHTML = "Mood: tolerate"
+  saveKittens()
 
   /* drawKittens()   Not needed any more aince updating DOM */
 }
