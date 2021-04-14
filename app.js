@@ -140,7 +140,23 @@ function catnip(id) {
  * Happy > 6, Tolerant <= 5, Angry <= 3, Gone <= 0
  * @param {Kitten} kitten
  */
-function setKittenMood(kitten) { }
+function setKittenMood(kitten) {
+  if (kitten.affection == 3) {
+    kitten.mood = Angry
+  }
+  if (kitten.affection == 4) {
+    kitten.mood = ""
+  }
+  if (kitten.affection >= 5) {
+    kitten.mood = "Tolerant"
+  }
+  if (kitten.affection > 6) [
+    kitten.mood = "Happy"
+  ]
+  drawKittems()
+}
+
+
 
 function getStarted() {
   document.getElementById("welcome").remove();
