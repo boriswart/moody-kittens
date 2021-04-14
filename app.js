@@ -21,7 +21,7 @@ function addKitten(event) {
   Kitten = {
     id: generateId(),
     name: form.name.value.toString(),
-    mood: "tolerate",
+    mood: "Tolerant",
     affection: 4
   }
   console.log(Kitten)
@@ -128,9 +128,9 @@ function catnip(id) {
   let KittenPtr = findKittenById(id)
   console.log("Catnipping: ", KittenPtr.name, " A very good choice!")
   KittenPtr.affection = 5;
-  KittenPtr.mood = "tolerate"
+  KittenPtr.mood = "Tolerant"
   affectionElement.innerHTML = "Affection: 5"
-  moodElement.innerHTML = "Mood: tolerate"
+  moodElement.innerHTML = "Mood: Tolerant"
   saveKittens()
   /* drawKittens()   Not needed any more aince updating DOM */
 }
