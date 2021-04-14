@@ -92,7 +92,6 @@ button{
   background-color: var(--danger-lighten)
 }
 
-
 button:focus{
   outline: none;
 }
@@ -164,9 +163,11 @@ button.btn-special:hover{
   filter: drop-shadow(2px 4px 6px #1b1b1b);
   transition: all .35s ease;
 }
+
 .kitten.happy img{
   filter: drop-shadow(2px 4px 6px #00ffb3);
 }
+
 .kitten.tolerant img{
   filter: drop-shadow(2px 4px 6px #646464);
 }
