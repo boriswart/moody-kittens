@@ -45,8 +45,11 @@ function saveKittens() {
  * the kittens array to the retrieved array
  */
 function loadKittens() {
-  let numKittens = JSON.parse(localStorage.length)
-  console.log("No of storge Elements", numKittens)
+  let storedKittens = JSON.parse(localStorage.getItem("kittens"))
+  if (storedKittens) {
+    kittens = storedKittens
+  }
+
 }
 
 /**
@@ -55,26 +58,23 @@ function loadKittens() {
 function drawKittens() {
   let kittenListElement = document.getElementById("kitten")
   let kittenTemplate = ""
-  /*
-  TODO: Temp storage area:
-  <button class="danger" name="PET"     onclick="pet(${x.id})"></button>
-  
-  */
-
   kittens.forEach(x => {
     kittenTemplate += `
-     <span class="card-dark ">
-     <img src="https://robohash.org/${x.name}?set=set4" alt="https://robohash.org/set=set4"></img>
-     <p class="mt-1 mb-1 ml-3">Name: ${x.name}</>
-     <p class="mt-1 mb-1 ml-3">Mood: ${x.mood}</p>
-     <p class="mt-1 mb-1 ml-3">Affection: ${x.affection}</p>
-     <div class="d-flex space-between align-items-center ">
-        <button class="danger" type="button" Name="PET" onclick="pet(${x.id})">Pet</button>
-        <button class="button" type="button"  onclick="catnip(${x.id})">Catnip</button>
-     </div>
-   </span>
-   `
+    <span class="card-dark ">
+    <img src="https://robohash.org/${x.name}?set=set4" alt="https://robohash.org/set=set4"></img>
+    <p class="mt-1 mb-1 ml-3">Name: ${x.name}</>
+    <p class="mt-1 mb-1 ml-3">Mood: ${x.mood}</p>
+    <p class="mt-1 mb-1 ml-3">Affection: ${x.affection}</p>
+    <div class="d-flex space-between align-items-center ">
+    <button class="danger" type="button" Name="PET" onclick='pet(${JSON.stringify(x.id)})'>Pet</button>
+    <button class="button" type="button"  onclick="catnip(${x.id.toString()})">Catnip</button>
+    </div>
+    </span>
+    `
+    /*
+    TODO: Temp storage area:
     console.log("log: ", kittenTemplate.toString())
+    */
   })
   kittenListElement.innerHTML = kittenTemplate
 }
@@ -99,6 +99,15 @@ function findKittenById(id) {
  */
 function pet(id) {
   console.log("PetId: ", id)
+  let storedKitten = findKittenById(id)
+  let randAffection = Math.random()
+  console.log("Petting: ", storedKitten.name, " Please be careful")
+  if (randAffection > 0.7) {
+    storedKitten.affection++
+  } else {
+    storedKitten.affection--
+  }
+  drawKittens()
 }
 
 /**
