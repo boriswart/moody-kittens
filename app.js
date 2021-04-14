@@ -22,7 +22,7 @@ function addKitten(event) {
     id: generateId(),
     name: form.name.value.toString(),
     mood: "Tolerant",
-    affection: 4
+    affection: 5
   }
   console.log(Kitten)
   kittens.push(Kitten)
