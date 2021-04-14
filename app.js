@@ -67,7 +67,7 @@ function drawKittens() {
     <p class="mt-1 mb-1 ml-3">Affection: ${x.affection}</p>
     <div class="d-flex space-between align-items-center ">
     <button class="danger" type="button" Name="PET" onclick='pet(${JSON.stringify(x.id)})'>Pet</button>
-    <button class="button" type="button"  onclick="catnip(${x.id.toString()})">Catnip</button>
+    <button class="button" type="button"  onclick="catnip(${JSON.stringify(x.id)}">Catnip</button>
     </div>
     </span>
     `
