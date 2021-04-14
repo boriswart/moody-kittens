@@ -13,6 +13,7 @@
   --dark-lighten: #504c4c;
   --light: #fdfdfd;
   --danger: #ff3737;
+  --danger: #f17a7a;
 }
 
 body{
@@ -57,23 +58,25 @@ label{
 
 input{
   width: 100%;
+  margin: 10px;
   padding: .375rem .75rem;
   font-size: 1rem;
   color: var(--light);
-  background-color: transparent;
+  background-color: var(--light);
   background-clip: padding-box;
-  border: none;
   border-bottom: 1px solid var(--primary);
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
 input:focus{
-  outline: none;
+  outline:seagreen;
 }
+
 
 button{
   background-color: var(--primary);
   color: var(--light);
-  border: none;
+  border:seagreen;
   border-radius: var(--corners);
   box-shadow: var(--shadow);
   text-transform: uppercase;
@@ -82,9 +85,19 @@ button{
   padding: .5em;
 }
 
+danger{
+  background-color: var(--danger);
+}
+
+danger:hover{
+  background-color: var(--danger-lighten)
+}
+
+
 button:focus{
   outline: none;
 }
+
 button:hover{
   background-color: var(--primary-lighten);
 }

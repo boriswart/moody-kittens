@@ -65,8 +65,8 @@ function drawKittens() {
      <p class="mt-1 mb-1 ml-3">Mood: ${x.mood}</p>
      <p class="mt-1 mb-1 ml-3">Affection: ${x.affection}</p>
      <div class="d-flex space-between align-items-center ">
-        <input type="button" value="PET"  onclick="pet(${x.id})"></input>
-        <input type="button" value="CATNIP"  onclick="catnip(${x.id})"></input>
+        <button type="button" value="PET"  onclick="pet(${x.id})"></button>
+        <button class="button danger" type="button" value="CATNIP"  onclick="catnip(${x.id})"></button>
      </div>
    </span>
    `
