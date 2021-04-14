@@ -27,7 +27,7 @@ function addKitten(event) {
   console.log(Kitten)
   kittens.push(Kitten)
   saveKittens()
-  form.reset
+  form.reset()
 }
 
 /**
@@ -44,7 +44,10 @@ function saveKittens() {
  * then parses the JSON string into an array. Finally sets
  * the kittens array to the retrieved array
  */
-function loadKittens() { }
+function loadKittens() {
+  let numKittens = JSON.parse(localStorage.length)
+  console.log("No of storge Elements", numKittens)
+}
 
 /**
  * Draw all of the kittens to the kittens element
@@ -54,6 +57,7 @@ function drawKittens() {
   let kittenTemplate = ""
   /*
   TODO: Temp storage area:
+  <button class="danger" name="PET"     onclick="pet(${x.id})"></button>
   
   */
 
@@ -65,8 +69,8 @@ function drawKittens() {
      <p class="mt-1 mb-1 ml-3">Mood: ${x.mood}</p>
      <p class="mt-1 mb-1 ml-3">Affection: ${x.affection}</p>
      <div class="d-flex space-between align-items-center ">
-        <button type="button" value="PET"  onclick="pet(${x.id})"></button>
-        <button class="button danger" type="button" value="CATNIP"  onclick="catnip(${x.id})"></button>
+        <button class="danger" type="button" Name="PET" onclick="pet(${x.id})">Pet</button>
+        <button class="button" type="button"  onclick="catnip(${x.id})">Catnip</button>
      </div>
    </span>
    `
@@ -93,7 +97,9 @@ function findKittenById(id) {
  * save the kittens
  * @param {string} id
  */
-function pet(id) { }
+function pet(id) {
+  console.log("PetId: ", id)
+}
 
 /**
  * Find the kitten in the array of kittens
@@ -102,7 +108,9 @@ function pet(id) { }
  * save the kittens
  * @param {string} id
  */
-function catnip(id) { }
+function catnip(id) {
+  console.log("CatnipId: ", id)
+}
 
 /**
  * Sets the kittens mood based on its affection
@@ -134,3 +142,7 @@ function generateId() {
     Math.floor(Math.random() * 10000000)
   );
 }
+
+loadKittens()
+drawKittens()
+
