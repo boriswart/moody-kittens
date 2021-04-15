@@ -60,7 +60,7 @@ function drawKittens() {
   let kittenTemplate = ""
   kittens.forEach(x => {
     kittenTemplate += `
-    <span id="${"kitten-" + (x.id)}" class="card-dark kitten Tolerant">
+    <span id="${"kitten-" + (x.id)}" class="card-dark kitten ${x.mood.toLowerCase()}">
     <img src="https://robohash.org/${x.name}?set=set4" alt="https://robohash.org/set=set4"></img>
     <p class="mt-1 mb-1 ml-3">Name: ${x.name}</>
     <p id='${'mood' + '-' + (x.id)}' class="mt-1 mb-1 ml-3">Mood: ${x.mood}</p>
@@ -108,6 +108,7 @@ function pet(id) {
   } else {
     KittenPtr.affection--
   }
+  setKittenMood(KittenPtr)
   affectionElement.innerHTML = ("Affection: " + KittenPtr.affection.toString())
   /* drawKittens() */
   saveKittens()
@@ -140,24 +141,28 @@ function catnip(id) {
  * Happy > 6, Tolerant <= 5, Angry <= 3, Gone <= 0
  * @param {Kitten} kitten
  */
-function setKittenMood(kitten) {
-  let kittenHtmlPtr = document.getElementById("kitten-" + kittem.id)
-  kittenHtmlPtr.classList.remove(kitten.mood.toLowerCase())
+function setKittenMood(kitt) {
+  console.log("Kitten input:", kitt)
+  let kittenHtmlPtr = document.getElementById("kitten-" + kitt.id)
+  kittenHtmlPtr.classList.remove(kitt.mood.toLowerCase())
 
-  if (kitten.affection == 3) {
-    kitten.mood = Angry
+  if (kitt.affection <= 3) {
+    kitt.mood = "Angry"
   }
-  if (kitten.affection == 4) {
-    kitten.mood = ""
+  if (kitt.affection == 0) {
+    kitt.mood = "gone"
   }
-  if (kitten.affection >= 5) {
-    kitten.mood = "Tolerant"
+  if (kitt.affection == 4) {
+    kitt.mood = "Tolerant"
   }
-  if (kitten.affection > 6) {
-    kitten.mood = "Happy"
+  if (kitt.affection == 5) {
+    kitt.mood = "Tolerant"
   }
-  kittenHtmlPtr.classList.push(kitten.mood.toLocaleLowerCase())
-  drawKittems()
+  if (kitt.affection >= 6) {
+    kitt.mood = "Happy"
+  }
+  kittenHtmlPtr.classList.add(kitt.mood.toLocaleLowerCase())
+  drawKittens()
 }
 
 function getStarted() {
