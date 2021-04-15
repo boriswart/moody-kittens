@@ -5,6 +5,8 @@
  */
 let kittens = [];
 let Kitten = {};
+let currentNumberofKittens = window.localStorage.getItem("kittens").length
+
 
 /**
  * Called when submitting the new Kitten Form
@@ -87,10 +89,7 @@ function drawKittens() {
     </div>
     </span>
     `
-    /*
-    TODO: Temp storage area:
-    console.log("log: ", kittenTemplate.toString())
-    */
+    currentNumberofKittens++
   })
   kittenListElement.innerHTML = kittenTemplate
 }
@@ -166,7 +165,7 @@ function setKittenMood(kitt) {
     kitt.mood = "Angry"
   }
   if (kitt.affection == 0) {
-    kitt.mood = "Gone"
+    kitt.mood = "Gone Ran Away"
   }
   if (kitt.affection == 4) {
     kitt.mood = "Tolerant"
