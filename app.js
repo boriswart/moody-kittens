@@ -32,6 +32,9 @@ function addKitten(event) {
         sameName = true
         throw "You cannot have a new Kitten with the same name!"
       }
+      if (x.name == "") {
+        throw "You cmust enter something in the  name field!"
+      }
     })
   } catch (e) {
     console.error(e)
