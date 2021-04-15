@@ -6,6 +6,8 @@
 let kittens = [];
 let Kitten = {};
 let currentNumberofKittens = window.localStorage.getItem("kittens").length
+let clearKittensElem = document.getElementById("clearKittens")
+
 
 
 /**
@@ -202,6 +204,11 @@ function generateId() {
     "-" +
     Math.floor(Math.random() * 10000000)
   );
+}
+
+function clearKittens() {
+  kittens = []
+  saveKittens()
 }
 
 loadKittens()
