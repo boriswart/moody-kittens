@@ -20,15 +20,18 @@ function addKitten(event) {
   let form = event.target
   let sameName = false
 
-  kittens.forEach(x => {
-    if (x.name == form.name.value.toString()) {
-      sameName = true
-    }
-  })
-
-  if (sameName) {
-    throw console.error("You cannot have a kitten with the same name");
-  } else {
+  try {
+    kittens.forEach(x => {
+      if (x.name == form.name.value.toString()) {
+        sameName = true
+        throw "You cannot have a new Kitten with the same name!"
+      }
+    })
+  } catch (e) {
+    console.error(e)
+    form.reset()
+  }
+  if (sameName != true) {
     Kitten = {
       id: generateId(),
       name: form.name.value.toString(),
