@@ -157,7 +157,7 @@ function catnip(id) {
   affectionElement.innerHTML = "Affection: 5"
   moodElement.innerHTML = "Mood: Tolerant"
   saveKittens()
-  /* drawKittens()   Not needed any more aince updating DOM */
+  /* drawKittens()   Not needed any more since updating DOM */
 }
 
 /**
