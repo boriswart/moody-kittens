@@ -24,16 +24,17 @@ console.log(clearKittensElem)
 function addKitten(event) {
   event.preventDefault()
   let form = event.target
-  let sameName = false
+  let sameNameOrNoName = false
 
   try {
+    if (form.name.value == "") {
+      sameNameOrNoName = true
+      throw "You must enter something in the  name field!"
+    }
     kittens.forEach(x => {
       if (x.name == form.name.value.toString()) {
-        sameName = true
+        sameNameOrNoName = true
         throw "You cannot have a new Kitten with the same name!"
-      }
-      if (x.name == "") {
-        throw "You cmust enter something in the  name field!"
       }
     })
   } catch (e) {
@@ -41,7 +42,7 @@ function addKitten(event) {
     alert(e)
     form.reset()
   }
-  if (sameName != true) {
+  if (sameNameOrNoName != true) {
     Kitten = {
       id: generateId(),
       name: form.name.value.toString(),
