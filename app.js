@@ -21,7 +21,7 @@ function addKitten(event) {
   let sameName = false
 
   kittens.forEach(x => {
-    if (x.name == fprm.name.value.toString()) {
+    if (x.name == form.name.value.toString()) {
       sameName = true
     }
   })
