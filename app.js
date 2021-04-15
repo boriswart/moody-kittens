@@ -29,6 +29,7 @@ function addKitten(event) {
     })
   } catch (e) {
     console.error(e)
+    alert(e)
     form.reset()
   }
   if (sameName != true) {
