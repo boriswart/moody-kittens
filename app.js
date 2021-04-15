@@ -6,7 +6,7 @@
 let kittens = [];
 let Kitten = {};
 let currentNumberofKittens = window.localStorage.getItem("kittens").length
-let clearKittensElem = document.getElementById("clearKittens")
+let clearKittensElem = document.getElementById("clearKittends")
 
 
 
@@ -68,6 +68,7 @@ function loadKittens() {
   let storedKittens = JSON.parse(localStorage.getItem("kittens"))
   if (storedKittens) {
     kittens = storedKittens
+    currentNumberofKittens = kittens.length
   }
 
 }
@@ -212,5 +213,12 @@ function clearKittens() {
 }
 
 loadKittens()
+
+if (currentNumberofKittens == 0) {
+  clearKittensElem.classList.add("hidden")
+} else {
+  clearKittensElem.innerHTML = "Clear " + kittens.length.toString() + "Kittens"
+}
+
 drawKittens()
 
