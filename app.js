@@ -18,16 +18,28 @@ let Kitten = {};
 function addKitten(event) {
   event.preventDefault()
   let form = event.target
-  Kitten = {
-    id: generateId(),
-    name: form.name.value.toString(),
-    mood: "Tolerant",
-    affection: 5
+  let sameName = false
+
+  kittens.forEach(x => {
+    if (x.name == fprm.name.value.toString()) {
+      sameName = true
+    }
+  })
+
+  if (sameName) {
+    throw console.error("You cannot have a kitten with the same name");
+  } else {
+    Kitten = {
+      id: generateId(),
+      name: form.name.value.toString(),
+      mood: "Tolerant",
+      affection: 5
+    }
+    console.log(Kitten)
+    kittens.push(Kitten)
+    saveKittens()
+    form.reset()
   }
-  console.log(Kitten)
-  kittens.push(Kitten)
-  saveKittens()
-  form.reset()
 }
 
 /**
@@ -65,7 +77,7 @@ function drawKittens() {
     <p class="mt-1 mb-1 ml-3">Name: ${x.name}</>
     <p id='${'mood' + '-' + (x.id)}' class="mt-1 mb-1 ml-3">Mood: ${x.mood}</p>
     <p id='${'affection' + '-' + (x.id)}' class="mt-1 mb-1 ml-3">Affection: ${x.affection}</p>
-    <div class="d-flex space-between align-items-center ">
+    <div class="d-flex space-between align-items-center ${(x.affection == 0) ? 'hidden' : ''}">
     <button class="danger" type="button" Name="PET" onclick='pet(${JSON.stringify(x.id)})'>Pet</button>
     <button class="button" type="button"  onclick='catnip(${JSON.stringify(x.id)})'>Catnip</button>
     </div>
