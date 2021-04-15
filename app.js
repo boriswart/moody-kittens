@@ -211,6 +211,8 @@ function generateId() {
 
 function clearKittens() {
   kittens = []
+  currentNumberofKittens = 0
+  clearKittensElem.classList.add("hidden")
   saveKittens()
 }
 
