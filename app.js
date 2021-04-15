@@ -170,7 +170,7 @@ function setKittenMood(kitt) {
     kitt.mood = "Angry"
   }
   if (kitt.affection == 0) {
-    kitt.mood = "Gone Ran Away"
+    kitt.mood = "Gone"
   }
   if (kitt.affection == 4) {
     kitt.mood = "Tolerant"
