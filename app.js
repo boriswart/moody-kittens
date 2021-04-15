@@ -130,7 +130,7 @@ function pet(id) {
   }
   setKittenMood(KittenPtr)
   affectionElement.innerHTML = ("Affection: " + KittenPtr.affection.toString())
-  /* drawKittens() */
+  /* drawKittens()  No longer needed Completed project*/
   saveKittens()
 }
 
