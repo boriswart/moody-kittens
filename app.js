@@ -5,9 +5,11 @@
  */
 let kittens = [];
 let Kitten = {};
-let currentNumberofKittens = window.localStorage.getItem("kittens").length
-let clearKittensElem = document.getElementById("clearKittends")
 
+let currentNumberofKittens = 0
+let clearKittensElem = document.getElementById("clearKittens")
+let clearKittensBtn = document.getElementById("clearKittensBtn")
+console.log(clearKittensElem)
 
 
 /**
@@ -70,7 +72,7 @@ function loadKittens() {
     kittens = storedKittens
     currentNumberofKittens = kittens.length
   }
-
+  console.log("Stored Kittens", currentNumberofKittens)
 }
 
 /**
@@ -214,10 +216,9 @@ function clearKittens() {
 
 loadKittens()
 
-if (currentNumberofKittens == 0) {
-  clearKittensElem.classList.add("hidden")
-} else {
-  clearKittensElem.innerHTML = "Clear " + kittens.length.toString() + "Kittens"
+if (currentNumberofKittens > 0) {
+  clearKittensElem.classList.remove("hidden")
+  clearKittensBtn.innerHTML = "Clear " + kittens.length.toString() + " Kittens"
 }
 
 drawKittens()
